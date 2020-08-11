@@ -91,7 +91,6 @@ class ReleaseInvoker {
 		request.setShowErrors(true);
 		request.setDebug(log.isDebugEnabled());
 
-
 		final List<String> goals = getGoals();
         if (arguments != null) {
             goals.add(arguments);

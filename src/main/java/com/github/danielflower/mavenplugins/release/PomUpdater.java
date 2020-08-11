@@ -41,7 +41,8 @@ public class PomUpdater {
                 changedPoms.add(pom);
                 Writer fileWriter = WriterFactory.newXmlWriter(pom);
 
-                Model originalModel = project.getOriginalModel();
+                //Model originalModel = project.getOriginalModel();
+                Model originalModel = project.getModel();
                 try {
                     MavenXpp3Writer pomWriter = new MavenXpp3Writer();
                     pomWriter.write(fileWriter, originalModel);
@@ -71,7 +72,8 @@ public class PomUpdater {
     }
 
     private List<String> alterModel(MavenProject project, String newVersion) {
-        Model originalModel = project.getOriginalModel();
+//        Model originalModel = project.getOriginalModel();
+        Model originalModel = project.getModel();
         originalModel.setVersion(newVersion);
 
         List<String> errors = new ArrayList<String>();
